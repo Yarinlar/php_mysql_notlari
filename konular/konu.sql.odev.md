@@ -222,6 +222,31 @@ WHERE LEFT(il,1) IN ('A', 'B', 'C');
 
 </details>
 
+<details>
+  <summary>Hata Durumunda</summary>
+
+####  Hata Mesajı
+Error in query (1140): In aggregated query without GROUP BY...
+
+---
+
+####  Çözüm: `ONLY_FULL_GROUP_BY` Modunu Kapatma
+
+ Bu hata genellikle **MySQL’in `ONLY_FULL_GROUP_BY`** modundan kaynaklanır.  
+Laragon üzerinden aşağıdaki adımları takip ederek çözebilirsiniz:
+
+1. Sağ altta Laragon ikonuna  **sağ tıkla**  
+2. **MySQL → my.ini** dosyasını aç  
+3. `[mysqld]` bölümüne şu satırı ekle:  
+
+   ```ini
+   sql_mode=""
+4. Dosyayı  **kaydet**  
+5. Laragon’u yeniden başlat
+
+
+</details> 
+
 ## Zorluk Seviyesi 4
 
 ### oykullanmayan adlı sahayı tanımlayın ve değerlerini doldurun
